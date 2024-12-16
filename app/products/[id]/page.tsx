@@ -7,6 +7,8 @@ interface ProductParams {
   };
 }
 
+export const revalidate = 3600;
+
 export default async function ProductPage({ params }: ProductParams) {
   const awParams = await params;
   const product = data.products.find((p) => `${p.id}` === awParams.id);
