@@ -13,6 +13,7 @@ export default function Products() {
             title={name}
             price={price}
             description={description}
+            isButtonVisible={true}
           />
         </div>
       ))}

@@ -1,16 +1,12 @@
 import Product from "@/app/components/Product";
 import data from "../../data.json";
 
-interface ProductParams {
-  params: {
-    id: string;
-  };
-}
+type Params = Promise<{ rcdId: string; id: string }>;
 
 export const revalidate = 3600;
 
-export default async function ProductPage({ params }: ProductParams) {
-  const awParams = await params;
+export default async function ProductPage(props: { params: Params }) {
+  const awParams = await props.params;
   const product = data.products.find((p) => `${p.id}` === awParams.id);
 
   return (
@@ -21,6 +17,7 @@ export default async function ProductPage({ params }: ProductParams) {
           title={product.name}
           price={product.price}
           description={product.description}
+          isButtonVisible={false}
         />
       ) : (
         <p>Product not found</p>

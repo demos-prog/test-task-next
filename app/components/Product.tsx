@@ -5,18 +5,24 @@ export default function Product({
   title,
   price,
   description,
+  isButtonVisible,
 }: {
   id: number;
   title: string;
   price: number;
   description: string;
+  isButtonVisible: boolean;
 }) {
   return (
     <div>
       <h2>{title}</h2>
-      <p>{price}</p>
-      <p>{description}</p>
-      <ProductButton title={title} id={id} />
+      {isButtonVisible ? null : (
+        <>
+          <p>{price}</p>
+          <p>{description}</p>
+        </>
+      )}
+      {isButtonVisible ? <ProductButton id={id} /> : null}
     </div>
   );
 }
