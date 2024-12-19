@@ -1,4 +1,5 @@
 import ProductButton from "./ProductButton";
+import { ProductProps } from "../types";
 
 export default function Product({
   id,
@@ -6,13 +7,7 @@ export default function Product({
   price,
   description,
   isButtonVisible,
-}: {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  isButtonVisible: boolean;
-}) {
+}: ProductProps) {
   return (
     <div>
       <h2>{title}</h2>

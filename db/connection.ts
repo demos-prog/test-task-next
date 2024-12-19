@@ -17,6 +17,6 @@ try {
   console.error(err);
 }
 
-const db = client.db("posts");
+const db = client.db("Products");
 
 export default db;
